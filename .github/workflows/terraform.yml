@@ -54,6 +54,7 @@ jobs:
     environment: production
     env: 
       GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS}}
+      TF_VAR_project: ${{ vars.GOOGLE_PROJECT }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
