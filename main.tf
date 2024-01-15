@@ -1,8 +1,8 @@
 
 terraform {
   backend "gcs" {
-    bucket  = "terraform-udea"
-    prefix  = "terraform/state"
+    bucket = "terraform-udea"
+    prefix = "terraform/state"
   }
   required_providers {
     google = {
