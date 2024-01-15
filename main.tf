@@ -1,5 +1,9 @@
 
 terraform {
+  backend "gcs" {
+    bucket  = "terraform-udea"
+    prefix  = "terraform/state"
+  }
   required_providers {
     google = {
       source  = "hashicorp/google"
@@ -57,6 +61,9 @@ resource "google_firebase_project" "default" {
 }
 
 resource "google_firebase_web_app" "basic" {
-    provider = google-beta
-    display_name = "My Firebase App"
+  provider     = google-beta
+  display_name = "My Firebase App"
+  depends_on = [
+    google_firebase_project.default
+  ]
 }
